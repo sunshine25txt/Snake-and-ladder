@@ -1,0 +1,14 @@
+mygame
+mygame.exe
+*.o
+.gradle/
+build/
+android-project/.gradle/
+android-project/app/build/
+android-project/app/jni/SDL2/
+android-project/app/jni/SDL2_ttf/
+android-project/app/jni/SDL2_mixer/
+android-project/app/jni/src/
+android-project/app/src/main/assets/assets/
+android-project/app/src/main/assets/questions.csv
+android-project/app/src/main/java/org/libsdl/
