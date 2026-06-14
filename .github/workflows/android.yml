@@ -44,7 +44,8 @@ jobs:
     - name: Build Debug APK
       working-directory: android-project
       run: |
-        if [ -x ./gradlew ]; then
+        if [ -f ./gradlew ]; then
+          chmod +x ./gradlew
           ./gradlew assembleDebug
         else
           gradle assembleDebug
