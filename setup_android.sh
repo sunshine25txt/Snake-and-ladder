@@ -24,9 +24,14 @@ echo "  ✓ 75.cpp and features.hpp copied to jni/src/"
 
 # Step 2: Copy game assets
 echo "[2/4] Copying game assets..."
+
+mkdir -p "$ASSETS_DIR"
+
 rm -rf "$ASSETS_DIR/assets" "$ASSETS_DIR/questions.csv"
+
 cp -r "$PROJ_DIR/assets" "$ASSETS_DIR/assets"
 cp "$PROJ_DIR/questions.csv" "$ASSETS_DIR/questions.csv"
+
 echo "  ✓ Assets copied (fonts, sounds, questions.csv)"
 
 # Step 3: Check and Setup SDL2 Android Libraries from source
