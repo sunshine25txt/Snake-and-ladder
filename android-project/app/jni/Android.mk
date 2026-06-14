@@ -3,6 +3,14 @@
 
 LOCAL_PATH := $(call my-dir)
 
+# Include SDL2 modules first (must be defined before game module references them)
+include $(LOCAL_PATH)/SDL2/Android.mk
+include $(LOCAL_PATH)/SDL2_ttf/Android.mk
+include $(LOCAL_PATH)/SDL2_mixer/Android.mk
+
+# Reset LOCAL_PATH after SDL includes (they modify it)
+LOCAL_PATH := $(call my-dir)
+
 # Build the game
 include $(CLEAR_VARS)
 LOCAL_MODULE := main
@@ -20,9 +28,3 @@ LOCAL_LDLIBS := -lGLESv1_CM -lGLESv2 -lOpenSLES -llog -landroid
 LOCAL_CPPFLAGS := -std=c++17
 
 include $(BUILD_SHARED_LIBRARY)
-
-# Include SDL2 modules (compiled from source)
-include $(LOCAL_PATH)/SDL2/Android.mk
-include $(LOCAL_PATH)/SDL2_ttf/Android.mk
-include $(LOCAL_PATH)/SDL2_mixer/Android.mk
-
