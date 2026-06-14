@@ -34,7 +34,7 @@ cp "$PROJ_DIR/questions.csv" "$ASSETS_DIR/questions.csv"
 
 echo "  ✓ Assets copied (fonts, sounds, questions.csv)"
 
-# Step 3: Check and Setup SDL2 Android Libraries from source
+# Step 3: Check and Setup SDL2 Android Libraries from source (skip if already cloned by CI)
 echo "[3/4] Checking and setting up SDL2 Android libraries from source..."
 
 for lib in SDL2 SDL2_ttf SDL2_mixer; do
@@ -50,11 +50,11 @@ for lib in SDL2 SDL2_ttf SDL2_mixer; do
         fi
         echo "  ✓ $lib downloaded."
     else
-        echo "  ✓ Found: $lib"
+        echo "  ✓ Found: $lib (skipping clone)"
     fi
 done
 
-# Step 4: Check and copy SDLActivity.java
+# Step 4: Check and copy SDLActivity.java (skip if already copied by CI)
 SDL_ACTIVITY="$ANDROID_DIR/app/src/main/java/org/libsdl/app/SDLActivity.java"
 if [ ! -f "$SDL_ACTIVITY" ]; then
     echo "[4/4] Copying SDLActivity.java..."
@@ -62,7 +62,7 @@ if [ ! -f "$SDL_ACTIVITY" ]; then
     cp "$JNI_DIR/SDL2/android-project/app/src/main/java/org/libsdl/app/"*.java "$ANDROID_DIR/app/src/main/java/org/libsdl/app/"
     echo "  ✓ SDLActivity.java copied."
 else
-    echo "[4/4] ✓ SDLActivity.java found"
+    echo "[4/4] ✓ SDLActivity.java found (skipping copy)"
 fi
 
 echo ""
