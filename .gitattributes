@@ -1,0 +1,8 @@
+# Ensure shell scripts always use LF (Unix) line endings
+android-project/gradlew text eol=lf
+setup_android.sh text eol=lf
+
+# Binary files
+android-project/gradle/wrapper/gradle-wrapper.jar binary
+*.png binary
+*.dll binary

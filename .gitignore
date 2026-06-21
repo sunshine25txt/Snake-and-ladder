@@ -1,14 +1,29 @@
 mygame
 mygame.exe
 *.o
+
+# Gradle build outputs
 .gradle/
 build/
 android-project/.gradle/
 android-project/app/build/
+
+# SDL2 libraries (cloned by workflow/setup_android.sh)
 android-project/app/jni/SDL2/
 android-project/app/jni/SDL2_ttf/
 android-project/app/jni/SDL2_mixer/
 android-project/app/jni/src/
+
+# Game assets (copied by setup_android.sh)
 android-project/app/src/main/assets/assets/
 android-project/app/src/main/assets/questions.csv
 android-project/app/src/main/java/org/libsdl/
+
+# Large binary files - DO NOT commit
+android-project/cmdline-tools.zip
+*.zip
+
+# Explicitly keep gradle wrapper files (needed for GitHub Actions)
+!android-project/gradlew
+!android-project/gradle/wrapper/gradle-wrapper.jar
+!android-project/gradle/wrapper/gradle-wrapper.properties
